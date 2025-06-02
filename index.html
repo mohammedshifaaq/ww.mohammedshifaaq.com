@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Shifaaq | Full Stack Developer</title>
+
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-color: #fff;
+      --text-color: #222;
+      --header-bg: #222;
+      --header-text: #fff;
+      --card-bg: #fff;
+      --footer-bg: #222;
+      --link-color: #00bcd4;
+      --highlight-color: #007acc;
+    }
+
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box ;
+      font-family: 'Roboto', sans-serif;
+    }
+
+
+     header img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
+    }
+    
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --header-bg: #1e1e1e;
+      --header-text: #fff;
+      --card-bg: #1a1a1a;
+      --footer-bg: #1e1e1e;
+      --link-color: #4dd0e1;
+      --highlight-color: #4fc3f7;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: 0.3s;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 1rem 1rem;
+      position: relative;
+    }
+
+    header a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: var(--link-color);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 100px;
+    }
+
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0px;
+      padding: 0.75rem 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link-color);
+      background: #444;
+      border-radius: 5px;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+      background-color: var(--card-bg);
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: var(--highlight-color);
+      border-bottom: 2px solid var(--highlight-color);
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: var(--link-color);
+      margin: 0 5px;
+      font-size: 1.10rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+  
+    .social-links a:hover {
+      color: var(--highlight-color);
+    }
+
+    .skills-bar {
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+
+    .skills-bar-fill {
+      height: 20px;
+      background: var(--link-color);
+      text-align: right;
+      color: white;
+      padding-right: 5px;
+      font-size: 14px;
+      width: 0;
+      animation: fillBar 2s forwards;
+    }
+
+    @keyframes fillBar {
+      to {
+        width: var(--fill-width);
+      }
+    }
+
+  /* Contact section styles */
+#contact {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#contact h2 {
+  text-align: center;
+  color: #007acc;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+button {
+  padding: 0.75rem;
+  background-color: #007acc;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--bg-color) 0.3s ease;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .form-container {
+    padding: 1rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.95rem;
+  }
+}
+
+/* Bottom text style */
+.contact-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #555;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.contact-bottom span {
+  color: #007acc;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+    footer {
+      text-align: center;
+      background-color: var(--footer-bg);
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .info-row {
+      margin-top: 1rem;
+    }
+
+    .info-row strong {
+      display: inline-block;
+      width: 120px;
+      color: var(--highlight-color);
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <h1>Mohammed Shifaaq</h1>
+     <header>
+    <img src="WhatsApp Image 2025-05-13 at 02.25.46_ce554739.jpg" alt="Mohammed Shifaaq">
+
+  </header>
+
+    <p>Full Stack Web Developer</p>
+    
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/15miGqqTzK/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/dark_king_0502?igsh=aHRibTV6cnB5bG8w&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/mohammedshifaaq" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://x.com/mohammedsh49984?s=21" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/https://x.com/mohammedsh49984?s=21" target="_blank" class="linkedin"> <i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </header>
+
+
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+    <a href="#works">Works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>HI I'm <strong>Mohammed Shifaaq</strong>,an aspiring web developer currently pursuing my studies with a strong interest in creating modern,
+       responsive websites, and web applications. Although; I am a fresher, I have hands-on experience through academic projects and self-learning,
+        working with technologies like HTML, CSS, JavaScript, and basic frameworks such as React and Node.js. I'm passionate about continuous 
+        learning and eager to apply my knowledge in real-world environments. I am a quick learner,
+       a problem-solver, and a dedicated team player looking for an opportunity to grow and contribute to meaningful development projects.</p>
+      <div class="info-row">
+      <p><strong>Country:</strong> Sri Lanka</p>
+      <p><strong>Phone:</strong> 7522267774</p>
+      <p><strong>Age:</strong>18</p>
+    </div>
+    <div class="info-row">
+      <p><strong>Line of Code:</strong> 5000+</p>
+      <link rel="stylesheet" href="style.css">
+    </div>
+  </section>
+
+
+   <section id="technologies">
+    <h2>Technical I Use</h2>
+    <div class="tech-icons">
+      <div class="tech-item">
+        <i class="fab fa-html5"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="tech-item">
+        <i class="fab fa-php"></i>
+        <span>PHP</span>
+      </div>
+      <div class="tech-item">
+        <i class="fab fa-java"></i>
+        <span>Java</span>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-code"></i>
+        <span>C++</span>
+        <link rel="stylesheet" href="style.css">
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
+
+
+  <section id="resume">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="
+    sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <h2>Resume</h2>
+    <ul>
+
+    <h3><i class="fa-solid fa-suitcase"></i>Professional Experience</h3>
+      <li>Actively learning front-end and back-end web development through physical courses, tutorials, and personal,and self practices.</li>
+      <li>Gained practical knowledge in HTML, CSS, JavaScript, and responsive design principles.</li>
+      <li>Built small-scale personal projects such as a personal portfolio, a to-do list app, and a basic weather app.</li>
+      <li>Exploring front-end frameworks like React and understanding the basics of back-end development using Node.js.</li>
+      <li>racticing version control with Git and GitHub to manage code and collaborate on sample projects.</li>
+      <li>Committed to continuous improvement by solving coding challenges and studying web development best practices.</li>
+
+
+    <ul>
+    
+    <h3><i class="fa-solid fa-user-graduate"></i> Education</h3>
+
+    <ul>
+      <li>I completed a Diploma in Computer Science (NVQ Level-5) from ESOFT Metro Campus Batticaloa, where I am developing a strong foundation in web development and programming. 
+       During my studies, I gained a bundle of practical experiment in HTML, CSS, JavaScript, PHP, and Java through academic projects and hands-on training. 
+       This education has equipped me with the technical and problem-solving skills needed to pursue a career as a Web Developer.</li>
+         <link rel="stylesheet" href="style.css">
+    </ul>
+  </section>
+
+
+      
+
+  <section id="skills">
+    <h2><i class="fa-solid fa-lightbulb"></i> Technical Skills</h2>
+
+    <p>Graphic Design</p>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 70%;">70%</div></div>
+
+    <p>Web Development</p>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 85%;">85%</div></div>
+
+    <p>Hardware</p>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 60%;">60%</div></div>
+  </section>
+
+
+<section id="Coding">
+ <h2><i class="fa-solid fa-code"></i> Coding</h2>
+
+    <p>HTML</p>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 70%;">70%</div></div>
+
+    <p>CSS</p>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 60%;">60%</div></div>
+
+    <p>JavaScript</p>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 50%;">50%</div></div>
+
+    <p>PHP</p>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 50%;">50%</div></div>
+
+    <p>MySQL</p>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 40%;">40%</div></div>
+ </section>
+
+  <section id="works">
+    <h2>Works</h2>
+    <div class="work-gallery">
+      <a href="WhatsApp Image 2025-05-20 at 14.31.35_ef2a343d.jpg" target="_blank" view>
+        <img src="WhatsApp Image 2025-05-20 at 14.31.35_ef2a343d.jpg" alt="Project 1">
+      </a>
+      <a href="WhatsApp Image 2025-05-20 at 14.31.35_cff6c8f5.jpg" target="_blank" viewd>
+        <img src="WhatsApp Image 2025-05-20 at 14.31.35_cff6c8f5.jpg" alt="Project 2">
+      </a>
+      <a href="Web Development Services Instagram Post (2).png" target="_blank" view>
+        <img src="Web Development Services Instagram Post (2).png" alt="Project 3">
+      </a>
+      <a href="image.png" target="_blank" view>
+        <img src="image.png" alt="Project 4">
+      </a>
+      <a href="WhatsApp Image 2025-05-20 at 14.31.35_cff6c8f5.jpg" target="_blank" view>
+        <img src="WhatsApp Image 2025-05-20 at 14.31.34_14a36dcb.jpg" alt="Project 5">
+      </a>
+      <a href="WhatsApp Image 2025-05-20 at 14.42.47_0a857fb4.jpg" target="_blank" view>
+        <img src="WhatsApp Image 2025-05-20 at 14.42.47_0a857fb4.jpg" alt="Project 6">
+      </a>
+    </div>
+  </section>
+
+
+   <section id="languages">
+    <h2><i class="fa-solid fa-language"></i> languages</h2>
+
+  <p>Tamil</p>
+   <div class="skills-bar"><div class="skills-bar-fill" style="width: 100%;">100%</div></div>
+
+   <p>English</p>
+     <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 80%;">80%</div></div>
+
+    <P>Sinhala</P>
+    <div class="skills-bar"><div class="skills-bar-fill" style="--fill-width: 30%;">30%</div></div>
+ </section>
+
+
+ <section id="knowledge">
+    <h2><i class="fa-solid fa-book"></i> knowledge</h2>
+
+  <ul class="knowledge-ilst">
+     <li>Create Logo Design</li>
+     <li>Modern Graphic Design</li>
+     <li>Website hosting</li>
+     <li>Electronic & Electrical</li>
+   </ul>
+</section>
+   
+   
+    <section class="contact-section">
+    <h2>content</h2>
+    <p><strong>Web:</strong> www.mohammedshifaaq.com</p>
+    <p><strong>Phone:</strong> 7522267774</p>
+    <p><strong>Email:</strong> darkmohammed06@gmail.com</p>
+    <p><strong>Web:</strong> www.mohammedshifaaq.com</p>
+    <link rel="stylesheet" href="style.css">
+  </section>
+
+    <section id="contact">
+   <secti id="Contact me">
+    <h2>Contact Me</h2>
+        
+      <form action="https://api.web3forms.com/submit" method="POST"></formaction> 
+      <div class="form-group">
+    </div>
+
+        <input type="hidden" name="access_key" value="7f738dc5-dc7a-4962-87ea-db99b8a03d33">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your email address" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Send Message</button>
+      </form>
+    <div>
+
+      <footer>
+    <p>&copy; 2025 Mohammed Shifaaq | mohammedshifaaq.com</p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+     
+</body>
+</html>
+
+  
