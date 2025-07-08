@@ -16,6 +16,15 @@
       --main-color: #59B2F4;
     }
 
+    html, body {
+     touch-action: manipulation;
+    -ms-touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    overflow-x: hidden;
+    user-select: none;
+  }
+
     html {
       font-size: 62.5%;
     }
