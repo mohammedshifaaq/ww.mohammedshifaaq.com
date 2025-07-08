@@ -369,9 +369,6 @@ iframe {
 }
 
 
-
-/* matches your iframe width */
-
 .contact {
   padding: 10rem 9% 5rem;
   background: var(--bg-color);
@@ -404,7 +401,7 @@ iframe {
 .contact form textarea {
   width: 100%;
   padding: 1.5rem;
-  font-size: 1.6rem; 
+  font-size: 16px; 
   color: var(--text-color);
   background-color: var(--snd-bg-color);
   border: 0.2rem solid var(--main-color);
@@ -413,14 +410,17 @@ iframe {
   text-align: center;
 }
 
+
 .contact form .input-box input {
   width: 49%;
-  font-size: 1.6rem; 
 }
 
 .contact form textarea {
   margin-bottom: 2rem;
-  font-size: 1.6rem; 
+}
+
+input, textarea {
+  font-size: 16px; 
 }
 
 .contact form .btn {
@@ -464,10 +464,11 @@ iframe {
     text-decoration: none;
     transition: color 0.3s ease;
     }
-/* .footer-iconTop a i {
+
+.footer-iconTop a i {
   font-size: 2.4rem;
   color: var(--snd-bg-color);
-} */
+} 
 
 
 /* Responsive */
@@ -570,7 +571,6 @@ iframe {
   
   }
 
-
  @media (max-width: 480px) {
   html {
      font-size: 50%; 
@@ -587,4 +587,3 @@ iframe {
   
   }
    
-
