@@ -548,7 +548,7 @@ iframe {
   }
 }
 
-@media (max-width: 617px) {
+@media (max-width: 600px) {
   .portfolio-container {
      grid-template-columns: 1fr; 
   }
@@ -557,7 +557,7 @@ iframe {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   html {
      font-size: 50%; 
   }
